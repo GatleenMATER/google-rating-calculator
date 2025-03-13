@@ -6,16 +6,23 @@ document.getElementById("ratingForm").addEventListener("submit", function(event)
     let currentReviews = parseInt(document.getElementById("currentReviews").value);
     let targetRating = parseFloat(document.getElementById("targetRating").value);
     let reviewType = parseInt(document.getElementById("reviewType").value);
+    let actionType = document.getElementById("actionType").value;
 
     // Calculate the number of reviews needed
-    let requiredReviews = calculateReviewsToTarget(currentRating, currentReviews, targetRating, reviewType);
+    let requiredReviews;
 
-    // Display the result
-    document.getElementById("requiredReviews").innerText = `You need ${requiredReviews} ${reviewType}-star reviews to achieve a rating of ${targetRating}.`;
+    if (actionType === 'increase') {
+        requiredReviews = calculateReviewsToTarget(currentRating, currentReviews, targetRating, reviewType);
+        document.getElementById("requiredReviews").innerText = `You need ${requiredReviews} ${reviewType}-star reviews to increase your rating to ${targetRating}.`;
+    } else if (actionType === 'avoidDrop') {
+        requiredReviews = calculateReviewsToAvoidDrop(currentRating, currentReviews, targetRating, reviewType);
+        document.getElementById("requiredReviews").innerText = `You need ${requiredReviews} 5-star reviews to avoid dropping below ${targetRating}.`;
+    }
+
     document.getElementById("result").style.display = "block";
 });
 
-// Function to calculate the required number of reviews
+// Function to calculate the required number of reviews to increase rating
 function calculateReviewsToTarget(currentRating, currentReviews, targetRating, reviewValue) {
     let totalRating = currentRating * currentReviews;
     let reviewsNeeded = 0;
@@ -31,4 +38,23 @@ function calculateReviewsToTarget(currentRating, currentReviews, targetRating, r
 
         reviewsNeeded++;
     }
+}
+
+// Function to calculate how many 5-star reviews are needed to avoid dropping below target
+function calculateReviewsToAvoidDrop(currentRating, currentReviews, targetRating, reviewValue) {
+    let totalRating = currentRating * currentReviews;
+    let reviewsNeeded = 0;
+
+    // Calculate how many reviews are needed to avoid dropping below target
+    while (true) {
+        let totalReviews = currentReviews + reviewsNeeded;
+        let newRating = (totalRating + (reviewValue * reviewsNeeded)) / totalReviews;
+        
+        if (newRating < targetRating) {
+            break;
+        }
+
+        reviewsNeeded++;
+    }
+    return reviewsNeeded;
 }

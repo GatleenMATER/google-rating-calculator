@@ -17,7 +17,7 @@
             <label for="currentReviews">Total Reviews:</label>
             <input type="number" id="currentReviews" required>
 
-            <label for="targetRating">Desired Rating (e.g., 4.5):</label>
+            <label for="targetRating">Desired Rating (e.g., 4.5 or 4.0 to avoid dropping):</label>
             <input type="number" id="targetRating" step="0.1" min="1" max="5" required>
 
             <label for="reviewType">Type of Review to Add:</label>
@@ -27,6 +27,12 @@
                 <option value="3">3-Star Review</option>
                 <option value="4">4-Star Review</option>
                 <option value="5">5-Star Review</option>
+            </select>
+
+            <label for="actionType">What would you like to do?</label>
+            <select id="actionType">
+                <option value="increase">Increase Rating</option>
+                <option value="avoidDrop">Avoid Dropping Rating</option>
             </select>
 
             <button type="submit">Calculate</button>
