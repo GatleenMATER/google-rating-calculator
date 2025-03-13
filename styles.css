@@ -12,11 +12,14 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensures the container takes full width on smaller devices */
+    box-sizing: border-box; /* Prevents overflow */
 }
 
 h1 {
     text-align: center;
     font-size: 1.8em;
+    margin-bottom: 20px;
 }
 
 /* Make form elements responsive */
@@ -33,6 +36,7 @@ input, select {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1em;
+    box-sizing: border-box; /* Ensures padding doesn't overflow */
 }
 
 button {
@@ -87,4 +91,91 @@ label[title]:hover::after {
     font-family: Arial, sans-serif;
     z-index: 9999;
     pointer-events: none; /* So it doesn’t interfere with clicks */
+}
+
+/* Media Queries for different screen sizes */
+
+/* Tablet (devices like iPads) */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    input, select {
+        padding: 10px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .result p {
+        font-size: 1.1em;
+    }
+}
+
+/* Mobile devices (phones) */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.4em;
+    }
+
+    input, select {
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .result p {
+        font-size: 1em;
+    }
+}
+
+/* Desktop devices */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 960px;  /* Limit width for larger screens */
+        margin: 20px auto;
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    input, select {
+        padding: 14px;
+    }
+
+    button {
+        padding: 16px;
+        font-size: 1.2em;
+    }
+
+    .result p {
+        font-size: 1.4em;
+    }
+}
+
+/* Larger Desktop screens */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1200px;  /* Further adjust width for even larger screens */
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
 }
