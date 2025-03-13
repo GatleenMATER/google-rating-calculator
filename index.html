@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Rating Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Google Rating Calculator</h1>
+
+        <form id="ratingForm">
+            <label for="currentRating">Current Rating (e.g., 4.2):</label>
+            <input type="number" id="currentRating" step="0.1" min="1" max="5" required>
+
+            <label for="currentReviews">Total Reviews:</label>
+            <input type="number" id="currentReviews" required>
+
+            <label for="targetRating">Desired Rating (e.g., 4.5):</label>
+            <input type="number" id="targetRating" step="0.1" min="1" max="5" required>
+
+            <label for="reviewType">Type of Review to Add:</label>
+            <select id="reviewType">
+                <option value="1">1-Star Review</option>
+                <option value="2">2-Star Review</option>
+                <option value="3">3-Star Review</option>
+                <option value="4">4-Star Review</option>
+                <option value="5">5-Star Review</option>
+            </select>
+
+            <button type="submit">Calculate</button>
+        </form>
+
+        <div id="result" class="result">
+            <h2>Results:</h2>
+            <p id="requiredReviews"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
