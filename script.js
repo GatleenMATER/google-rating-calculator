@@ -1,3 +1,28 @@
+function validateForm() {
+    let currentRating = parseFloat(document.getElementById("currentRating").value);
+    let targetRating = parseFloat(document.getElementById("targetRating").value);
+
+    // Check if the current rating exceeds 5
+    if (currentRating > 5) {
+        alert("The current rating cannot be higher than 5.");
+        return false;
+    }
+
+    // Check if the target rating exceeds 5
+    if (targetRating > 5) {
+        alert("The desired rating cannot be higher than 5.");
+        return false;
+    }
+
+    // Check if the current rating is greater than the target rating
+    if (currentRating > targetRating) {
+        alert("The current rating cannot be higher than the desired rating.");
+        return false;
+    }
+
+    return true;
+}
+
 document.getElementById("ratingForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent form from submitting
 

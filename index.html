@@ -10,17 +10,32 @@
     <div class="container">
         <h1>Google Rating Calculator</h1>
 
-        <form id="ratingForm">
-            <label for="currentRating">Current Rating (e.g., 4.2):</label>
+        <div id="howItWorks" class="how-it-works">
+            <h3>How It Works</h3>
+            <p>
+                This tool helps you calculate how many reviews you need to either increase your Google rating or avoid dropping below a certain rating.
+            </p>
+        </div>
+
+        <form id="ratingForm" onsubmit="return validateForm()">
+            <label for="currentRating" title="Enter your current Google rating (e.g., 4.2)">
+                Current Rating (e.g., 4.2):
+            </label>
             <input type="number" id="currentRating" step="0.1" min="1" max="5" required>
 
-            <label for="currentReviews">Total Reviews:</label>
+            <label for="currentReviews" title="Enter the total number of reviews you have">
+                Total Reviews:
+            </label>
             <input type="number" id="currentReviews" required>
 
-            <label for="targetRating">Desired Rating (e.g., 4.5 or 4.0 to avoid dropping):</label>
+            <label for="targetRating" title="Enter the rating you want to reach or avoid dropping below (e.g., 4.5)">
+                Desired Rating (e.g., 4.5 or 4.0 to avoid dropping):
+            </label>
             <input type="number" id="targetRating" step="0.1" min="1" max="5" required>
 
-            <label for="reviewType">Type of Review to Add:</label>
+            <label for="reviewType" title="Choose the type of review (1 to 5 stars) you'd like to add">
+                Type of Review to Add:
+            </label>
             <select id="reviewType">
                 <option value="1">1-Star Review</option>
                 <option value="2">2-Star Review</option>
@@ -29,7 +44,9 @@
                 <option value="5">5-Star Review</option>
             </select>
 
-            <label for="actionType">What would you like to do?</label>
+            <label for="actionType" title="Select whether you want to increase your rating or avoid dropping below a certain rating">
+                What would you like to do?
+            </label>
             <select id="actionType">
                 <option value="increase">Increase Rating</option>
                 <option value="avoidDrop">Avoid Dropping Rating</option>
