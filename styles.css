@@ -6,8 +6,8 @@ body {
 }
 
 .container {
-    max-width: 600px;
-    margin: 50px auto;
+    max-width: 100%;
+    margin: 20px auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -16,8 +16,10 @@ body {
 
 h1 {
     text-align: center;
+    font-size: 1.8em;
 }
 
+/* Make form elements responsive */
 label {
     font-weight: bold;
     margin-bottom: 5px;
@@ -25,21 +27,23 @@ label {
 }
 
 input, select {
-    width: 100%;
-    padding: 8px;
+    width: 100%;  /* Make inputs full width */
+    padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 1em;
 }
 
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 14px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
+    font-size: 1.1em;
 }
 
 button:hover {
@@ -52,11 +56,11 @@ button:hover {
 }
 
 .result p {
-    font-size: 18px;
+    font-size: 1.2em;
     color: #333;
 }
 
-/* Tooltips when hovering over labels */
+/* Tooltip styling for smaller screens */
 label[title]:hover::after {
     content: attr(title);
     position: absolute;
@@ -71,4 +75,16 @@ label[title]:hover::after {
     left: 0;
     margin-top: 5px;
     width: 250px;
+}
+
+/* Watermark style */
+.watermark {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.8em;
+    color: rgba(0, 0, 0, 0.5); /* Semi-transparent color */
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+    pointer-events: none; /* So it doesn’t interfere with clicks */
 }
